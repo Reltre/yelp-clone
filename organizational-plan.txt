@@ -1,0 +1,10 @@
+Models:
+1) Business
+2) User
+3) Review
+
+Pages:
+home page:  Will default to a current list of businesses
+login/register pages
+user profile page
+business show page

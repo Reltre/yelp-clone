@@ -1,0 +1,17 @@
+%section#top-header.row
+  .col-md-2
+    %a.navbar-brand(href="#")
+      =image_tag "yelp.svg"
+  .col-md-6.col-md-offset-1
+    #main-search-area
+      = form_tag '#', class: 'form-inline' do |f|
+        .form-control
+          = label_tag do
+            %span <b>Find</b>
+            %input.main-search-input(size="30" placeholder="burritos, breakfast, Alice\'s")
+        .form-control
+          = label_tag do
+            %span <b>Near</b>
+            %input.main-search-input(size="30" placeholder="San Francisco, CA")
+        = button_tag type: 'submit', class: "btn btn-default" do
+          %span.glyphicon.glyphicon-search
