@@ -1,0 +1,18 @@
+#home_content.row
+  %section.col-md-5.col-md-offset-2
+    %header
+      %h3 Recent Reviews
+    - 5.times do
+      .review.row
+        .col-md-3
+          %h4=link_to "Review Title"
+          %p Review Content
+
+  %section.col-md-5
+    %header
+      %h3 New Businesses
+    - 5.times do
+      .business.row
+        .col-md-5
+          %h4=link_to "Business Title"
+          %p Review Content

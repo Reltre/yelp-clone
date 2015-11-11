@@ -13,5 +13,11 @@
           = label_tag do
             %span <b>Near</b>
             %input.main-search-input(size="30" placeholder="San Francisco, CA")
-        = button_tag type: 'submit', class: "btn btn-default" do
+        = button_tag type: 'submit', class: "btn btn-danger", id: "search-btn" do
           %span.glyphicon.glyphicon-search
+  .col-md-2.col-md-offset-1
+    #login-register
+      .row
+        = link_to 'Log in', '#', class: "btn btn-danger", id: "login-btn"
+      .row
+        = link_to 'Sign Up', '#', class: "btn btn-sm btn-danger", id: "register-btn"
