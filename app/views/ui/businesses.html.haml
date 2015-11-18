@@ -1,0 +1,14 @@
+%section.col-md-5.col-md-offset-4
+  %header
+    %h3 Businesses
+  - 5.times do
+    .business-row.row
+      .col-md-9
+        .business-type-list-photo
+          = link_to "#" do
+            = image_tag "business_time", class:"business-image"
+            .business-list-info
+              %h4=link_to "Business Title", "#", class:"business-list-link"
+              %h4 Rating
+              %h4 Location
+              -# Use collapse bootstrap js to make this nice later
