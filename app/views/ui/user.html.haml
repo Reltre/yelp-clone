@@ -1,0 +1,35 @@
+.col-md-offset-1
+  %h3 Name
+  %br
+  Location
+  %br
+  Profile
+  %br
+  Description
+  %hr
+  %h4#user-profile-reviews-title Reviews
+  - 5.times do
+    .row.user-profile-review
+      = link_to "Business Name", "#"
+      .col-md-1
+        = image_tag "", width: "80", height: "80"
+      .col-md-1
+        %ul.list-unstyled
+          %li $ - Type of Restuarant
+          %li Location
+          %li Rating
+      %br
+
+      .review-content-user-profile
+        %article.col-md-8
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Curabitur sit amet urna consequat, luctus massa non, pharetra neque.
+          Nullam arcu mauris, sagittis ut massa non, efficitur ultricies ligula.
+          Cras quis lacinia est. Duis sit amet porttitor augue. Morbi et tristique elit.
+          In eget magna a erat congue semper vel in quam. Fusce congue massa in euismod porttitor.
+          Proin gravida diam turpis, non tempor arcu suscipit in.
+          Phasellus dolor nibh, tristique eget venenatis quis, elementum id orci.
+          Duis sed condimentum purus. Etiam leo sem, mattis non tincidunt sed, pretium non ipsum.
+          Maecenas aliquam nunc dui, eget vehicula enim pellentesque in.
+          Aliquam porttitor, nisi nec tempor vulputate, tortor ligula ultrices diam, et ultricies odio dui et ipsum.
+          Etiam quis cursus nisi. Praesent id blandit sapien. Aliquam eget ipsum sed erat consequat sagittis et id quam.

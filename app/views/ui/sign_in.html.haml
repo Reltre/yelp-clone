@@ -1,0 +1,11 @@
+.row#signup-form
+  .col-md-4.col-md-offset-4
+    = form_tag '/sign_up' do
+      .form-group
+        %label.hidden Email
+        = text_field_tag 'Email', nil,class: 'form-control',placeholder: 'Email'
+      .form-group
+        %label.hidden Password
+        = text_field_tag 'Password', nil,class: 'form-control',placeholder: 'Password'
+
+      = submit_tag "Sign Up", class: 'form-control', id: 'sign-up--in-submit-btn'
