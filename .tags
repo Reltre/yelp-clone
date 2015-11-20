@@ -1,2 +1,5 @@
 UiController	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/ui_controller.rb	/^class UiController < ApplicationController$/;"	class	line:1
 a	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/user.html.sass	/^  a$/;"	function	line:7
+a	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/reviews.sass	/^  a$/;"	function	line:7
+textarea	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/application.sass	/^textarea$/;"	function	line:26
+textarea	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/new_review.sass	/^  textarea$/;"	function	line:9
