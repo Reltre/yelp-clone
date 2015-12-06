@@ -1,0 +1,33 @@
+%section.col-md-5.col-md-offset-4
+.row
+  .section-header.col-md-offset-1
+    %h3= @business.name
+  .business-row.row
+    .col-md-4.col-md-offset-1
+      .business-type-list-photo
+        = link_to business_path(@business) do
+          = image_tag "", class:"business-image"
+        %h4= link_to "#{@business.name}", business_path(@business)
+        %h4 Rating
+        %h4= @business.address
+    .col-md-6
+      %h4 Reviews
+      - @reviews.each do
+        .row
+          .col-md-6.business-page-reviews
+            %b Username
+            %b Rating
+            %br
+
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur sit amet urna consequat, luctus massa non, pharetra neque.
+            Nullam arcu mauris, sagittis ut massa non, efficitur ultricies ligula.
+            Cras quis lacinia est. Duis sit amet porttitor augue. Morbi et tristique elit.
+            In eget magna a erat congue semper vel in quam. Fusce congue massa in euismod porttitor.
+            Proin gravida diam turpis, non tempor arcu suscipit in.
+            Phasellus dolor nibh, tristique eget venenatis quis, elementum id orci.
+            Duis sed condimentum purus. Etiam leo sem, mattis non tincidunt sed, pretium non ipsum.
+            Maecenas aliquam nunc dui, eget vehicula enim pellentesque in.
+            Aliquam porttitor, nisi nec tempor vulputate, tortor ligula ultrices diam, et ultricies odio dui et ipsum.
+            Etiam quis cursus nisi. Praesent id blandit sapien. Aliquam eget ipsum sed erat consequat sagittis et id quam.

@@ -1,5 +1,27 @@
-UiController	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/ui_controller.rb	/^class UiController < ApplicationController$/;"	class	line:1
 a	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/user.html.sass	/^  a$/;"	function	line:7
 a	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/reviews.sass	/^  a$/;"	function	line:7
-textarea	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/application.sass	/^textarea$/;"	function	line:26
 textarea	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/new_review.sass	/^  textarea$/;"	function	line:9
+PagesController	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/pages_controller.rb	/^class PagesController < ApplicationController$/;"	class	line:1
+home	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/pages_controller.rb	/^  def home$/;"	method	line:3	class:PagesController
+ApplicationController	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	class	line:1
+CreateBusinesses	/Users/PoliceBox/Development/ruby/rails/yelp-clone/db/migrate/20151130195652_create_businesses.rb	/^class CreateBusinesses < ActiveRecord::Migration$/;"	class	line:1
+change	/Users/PoliceBox/Development/ruby/rails/yelp-clone/db/migrate/20151130195652_create_businesses.rb	/^  def change$/;"	method	line:2	class:CreateBusinesses
+AddPhoneNumberAndHoursToBusinesses	/Users/PoliceBox/Development/ruby/rails/yelp-clone/db/migrate/20151130232736_add_phone_number_and_hours_to_businesses.rb	/^class AddPhoneNumberAndHoursToBusinesses < ActiveRecord::Migration$/;"	class	line:1
+change	/Users/PoliceBox/Development/ruby/rails/yelp-clone/db/migrate/20151130232736_add_phone_number_and_hours_to_businesses.rb	/^  def change$/;"	method	line:2	class:AddPhoneNumberAndHoursToBusinesses
+BusinessesHelper	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/helpers/businesses_helper.rb	/^module BusinessesHelper$/;"	module	line:1
+User	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/models/user.rb	/^class User < ActiveRecord::Base$/;"	class	line:1
+Review	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/models/review.rb	/^class Review < ActiveRecord::Base$/;"	class	line:1
+CreateReviews	/Users/PoliceBox/Development/ruby/rails/yelp-clone/db/migrate/20151201201153_create_reviews.rb	/^class CreateReviews < ActiveRecord::Migration$/;"	class	line:1
+change	/Users/PoliceBox/Development/ruby/rails/yelp-clone/db/migrate/20151201201153_create_reviews.rb	/^  def change$/;"	method	line:2	class:CreateReviews
+UiController	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/ui_controller.rb	/^class UiController < ApplicationController$/;"	class	line:1
+textarea	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/assets/stylesheets/application.sass	/^textarea$/;"	function	line:27
+Business	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/models/business.rb	/^class Business < ActiveRecord::Base$/;"	class	line:1
+BusinessesController	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^class BusinessesController < ApplicationController$/;"	class	line:1
+index	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def index$/;"	method	line:2	class:BusinessesController
+new	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def new$/;"	method	line:5	class:BusinessesController
+create	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def create$/;"	method	line:10	class:BusinessesController
+show	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def show$/;"	method	line:21	class:BusinessesController
+edit	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def edit$/;"	method	line:27	class:BusinessesController
+update	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def update$/;"	method	line:32	class:BusinessesController
+destroy	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def destroy$/;"	method	line:35	class:BusinessesController
+business_params	/Users/PoliceBox/Development/ruby/rails/yelp-clone/app/controllers/businesses_controller.rb	/^  def business_params$/;"	method	line:40	class:BusinessesController
