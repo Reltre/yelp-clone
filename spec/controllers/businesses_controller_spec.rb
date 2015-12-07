@@ -11,17 +11,13 @@ describe BusinessesController do
   describe "POST create" do
     #Test associations later on for User.
     let(:business_params) { Fabricate.attributes_for :business }
-
-
-    it "sets a business" do
-      business = Fabricate.build(:business, name: nil)
-      post :create, business: business.attributes
-      expect(assigns(:business).attributes).to eq(business.attributes)
+    let(:time) do
+      [[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample]
     end
 
     context "with valid input" do
       before do
-        post :create, business: business_params
+        post :create, business: business_params.merge({time_open: time, time_close: time})
       end
 
       it "redirects to business show page" do
@@ -40,7 +36,7 @@ describe BusinessesController do
 
     context "with invalid input" do
       it "sets flash danger" do
-        post :create, business: business_params.merge({name: nil})
+        post :create, business: business_params.merge({name: nil, time_open:time, time_close: time})
         should set_flash[:danger].to("Something went wrong with creating your business.")
       end
     end
@@ -49,7 +45,7 @@ describe BusinessesController do
 
   describe "GET show" do
     it "assigns business" do
-      business = Fabricate(:business)
+      business = Fabricate(:business, time_open: Time.parse("12 00 PM"), time_close: Time.parse("1 00 PM"))
       get :show, id: business.id
       expect(assigns(:business)).to eq(business)
     end

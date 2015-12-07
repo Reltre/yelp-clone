@@ -9,6 +9,8 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
+    @business.normalize_time
+  
     if @business.save
       flash[:success] = "Your business was successfully created."
       redirect_to business_path @business
@@ -38,6 +40,10 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:price_range, :name, :address, :description, :phone_number)
+    params.require(:business)
+          .permit(
+            :price_range, :name, :address, :description,
+            :phone_number, time_open:[], time_close:[]
+          )
   end
 end
