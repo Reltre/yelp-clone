@@ -9,8 +9,9 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
+    binding.pry
     @business.normalize_time
-  
+
     if @business.save
       flash[:success] = "Your business was successfully created."
       redirect_to business_path @business

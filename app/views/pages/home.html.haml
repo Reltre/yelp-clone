@@ -6,7 +6,7 @@
   %section.col-md-5.col-md-offset-2
     %header
       %h3 Recent Reviews
-    - 5.times do
+    - @reviews.each do
       .review.row
         .col-md-5.well
           %h4=link_to "Review Title"
@@ -15,8 +15,14 @@
   %section.col-md-5
     %header
       %h3 New Businesses
-    - 5.times do
+    - @businesses.each do
       .business.row
         .col-md-5.well
-          %h4=link_to "Business Title"
-          %p Content
+          #image-group
+            = link_to "#" do
+              = image_tag "", class:"business-image"
+              .business-list-info
+                %h4= link_to "Business Title", "#", class:"business-list-link"
+                %h4 Rating
+                %h4 Location
+                -# Use collapse bootstrap js to make this nice later
