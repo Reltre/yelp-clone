@@ -1,5 +1,7 @@
 .row
-  .col-md-2.col-md-offset-5#new-business-btn
+  .col-md-2.col-md-offset-2.home-business-btn
+    = link_to "Businessses", businesses_path,  class: "btn btn-default yelp-main-btn-color"
+  .col-md-2.col-md-offset-3.home-business-btn
     = link_to "+ New Business", new_business_path, class: "btn btn-default yelp-main-btn-color"
 
 #home_content.row
@@ -15,14 +17,14 @@
   %section.col-md-5
     %header
       %h3 New Businesses
-    - @businesses.each do
+    - @businesses.each do |business|
       .business.row
         .col-md-5.well
           #image-group
-            = link_to "#" do
+            = link_to business_path(business) do
               = image_tag "", class:"business-image"
               .business-list-info
                 %h4= link_to "Business Title", "#", class:"business-list-link"
                 %h4 Rating
-                %h4 Location
+                %hd.hidden= business.address
                 -# Use collapse bootstrap js to make this nice later

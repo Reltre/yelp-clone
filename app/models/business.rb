@@ -8,4 +8,9 @@ class Business < ActiveRecord::Base
     self.time_open = "#{time_open[0]}:#{time_open[1]} #{time_open[2]}"
     self.time_close = "#{time_close[0]}:#{time_close[1]} #{time_close[2]}"
   end
+
+  def rating
+    return 0 if reviews.empty?
+    reviews.map(&:rating).reduce(:+)
+  end
 end

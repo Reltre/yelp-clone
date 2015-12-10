@@ -1,5 +1,7 @@
 class BusinessesController < ApplicationController
   def index
+    @businesses = []
+    Business.find_each { |business| @businesses << business }
   end
 
   def new

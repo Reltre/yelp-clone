@@ -1,0 +1,20 @@
+%header.row
+  .col-md-2.page-offset
+    %h2 Businesses
+%section.col-md-5.col-md-offset-4
+.row
+  - @businesses.each do |business|
+    .section-header.col-md-offset-1
+      %h3= business.name
+    .business-row.row
+      .col-md-5.col-md-offset-1
+        .business-type-list-photo
+          = link_to business_path(business) do
+            = image_tag "", class:"business-image"
+      .col-md-5
+        .businesses-page-info
+          %h4 Rating
+          %h4= link_to business.name, business_path(business), class:"business-list-link"
+          %h4= business.address
+          .business-content
+            %p= business.description
