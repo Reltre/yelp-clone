@@ -14,7 +14,7 @@ describe PagesController do
       business1 = Fabricate(:business)
       business2 = Fabricate(:business)
       get :home
-      expect(assigns(:businesses)).to match_array([business1, business2]) 
+      expect(assigns(:businesses)).to match_array([business1, business2])
     end
   end
 end
