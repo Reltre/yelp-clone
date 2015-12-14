@@ -1,0 +1,31 @@
+.row
+  .section-header.col-md-offset-1
+    %h3 New Business
+.row
+  .col-md-6.col-md-offset-1#review-new-content
+    = form_for :business do |f|
+      .form-group
+        .btn-group
+          = f.button "$", class:'btn btn-default', name: "business[price-range]"
+          = f.button "$$", class:'btn btn-default', name: "business[price-range]"
+          = f.button "$$$", class:'btn btn-default', name: "business[price-range]"
+          = f.button "$$$", class:'btn btn-default',  name: "business[price-range]"
+      .form-group
+        = f.label "Name"
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label "Description"
+        = f.text_field :description, class: 'form-control'
+      .form-group
+        = f.label "Address"
+        = f.text_field :address, class: 'form-control'
+      .form-group
+        = f.label "Phone Number"
+        = f.telephone_field :phone_number, class: 'form-control'
+      .form-group
+        = f.label "Photo URL"
+        = f.telephone_field :photo_url, class: 'form-control'
+      .form-group
+        = f.select :hours, options_for_select([[""]])
+      .form-group
+        = f.submit "Add Business", class: 'btn btn-danger yelp-main-btn-color'
