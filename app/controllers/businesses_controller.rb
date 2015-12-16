@@ -11,7 +11,7 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    binding.pry
+    # binding.pry
     @business.normalize_time
 
     if @business.save
@@ -25,6 +25,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business  = Business.find(params[:id])
+    @review = Review.new
     @reviews   = @business.reviews
     render :show
   end

@@ -53,10 +53,24 @@ describe BusinessesController do
   end
 
   describe "GET show" do
-    it "assigns business" do
-      business = Fabricate(:business, time_open: Time.parse("12 00 PM"), time_close: Time.parse("1 00 PM"))
+
+    let(:business) do
+      Fabricate(:business,
+                time_open: Time.parse("12 00 PM"),
+                time_close: Time.parse("1 00 PM")
+               )
+    end
+
+    before do
       get :show, id: business.id
+    end
+
+    it "assigns business" do
       expect(assigns(:business)).to eq(business)
+    end
+
+    it "assigns review" do
+      expect(assigns(:review)).to be_a_new(Review)
     end
 
     it "assigns reviews"
