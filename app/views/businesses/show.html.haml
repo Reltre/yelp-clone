@@ -14,7 +14,7 @@
           .form-group
             = f.text_area :content, class: 'form-control'
           .form-group
-            = f.submit "Submit", class: 'form-control yelp-main-btn-color'
+            %input(type="submit" name="commit" value="Post Review" class= 'form-control yelp-main-btn-color' data-target="review-form" data-toggle="collapse")
   .business-row.row
     .col-md-4.col-md-offset-1
       .business-type-list-photo
