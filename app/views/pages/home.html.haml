@@ -8,23 +8,25 @@
   %section.col-md-5.col-md-offset-2
     %header
       %h3 Recent Reviews
-    - @reviews.each do
+    - @reviews.each do |review|
       .review.row
         .col-md-5.well
-          %h4=link_to "Review Title"
-          %p Review Content
-
+          %h4=link_to review.business.name, business_path(review.business)
+          %p
+            = "Rating: #{review.rating}"
+            %br
+            = review.content
+            -# Add link to review content on business page with a 'read more' link.
   %section.col-md-5
     %header
       %h3 New Businesses
     - @businesses.each do |business|
-      .business.row
-        .col-md-5.well
-          #image-group
-            = link_to business_path(business) do
-              = image_tag "", class:"business-image"
-              .business-list-info
-                %h4= link_to "Business Title", "#", class:"business-list-link"
-                %h4 Rating
-                %hd.hidden= business.address
-                -# Use collapse bootstrap js to make this nice later
+      .row.business-row
+        .col-xs-6.col-md-6
+          = link_to business_path(business), class: "thumbnail" do
+            = image_tag 'placeholder-image.svg'
+          .business-list-info
+            = link_to "Business Title", "#", class:"business-list-link"
+            %h5 Rating
+            %h5.hidden= business.address
+            -# Use collapse bootstrap js to make this nice later
