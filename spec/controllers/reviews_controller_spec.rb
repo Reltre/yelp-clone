@@ -28,7 +28,12 @@ describe ReviewsController do
         end
 
         it "associates the current user with a new review"
-        it "sets a flash success message"
+
+        it "sets a flash success message" do
+          post :create, business_id: business_id,
+                        review: { "rating": "3", "content": "Meh." }
+          should set_flash[:success].to("Your review was created successfully.")
+        end
       end
 
       context "with invalid input" do

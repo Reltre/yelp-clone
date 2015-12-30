@@ -73,6 +73,9 @@ describe BusinessesController do
       expect(assigns(:review)).to be_a_new(Review)
     end
 
-    it "assigns reviews"
+    it "assigns reviews" do
+      reviews = Review.all
+      expect(assigns(:reviews)).to match_array(reviews)
+    end
   end
 end

@@ -22,7 +22,7 @@
       %h3 New Businesses
     - @businesses.each do |business|
       .row.business-row
-        .col-xs-6.col-md-6
+        .col-xs-6.col-md-6#business-thumbnail-
           = link_to business_path(business), class: "thumbnail" do
             = image_tag 'placeholder-image.svg'
           .business-list-info
