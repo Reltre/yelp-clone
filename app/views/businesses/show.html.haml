@@ -2,6 +2,19 @@
 .row
   .section-header.col-md-offset-1
     %h3= @business.name
+  #new-review.home-business-btn.col-md-4.col-md-offset-2
+    %a(href="#review-form" class="btn btn-default yelp-main-btn-color" data-toggle="collapse")
+      + New Review
+    #review-form.collapse
+      .well
+        = form_for [@business, @review] do |f|
+          .form-group
+            = f.label :rating, "Rating"
+            = f.number_field :rating, class: 'form-control'
+          .form-group
+            = f.text_area :content, class: 'form-control'
+          .form-group
+            %input(type="submit" name="commit" value="Post Review" class= 'form-control yelp-main-btn-color' data-target="review-form" data-toggle="collapse")
   .business-row.row
     .col-md-4.col-md-offset-1
       .business-type-list-photo
@@ -10,24 +23,13 @@
         %h4= link_to "#{@business.name}", business_path(@business)
         %h4 Rating
         %h4= @business.address
-    .col-md-6
-      %h4 Reviews
-      - @reviews.each do
-        .row
-          .col-md-6.business-page-reviews
-            %b Username
-            %b Rating
-            %br
-
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Curabitur sit amet urna consequat, luctus massa non, pharetra neque.
-            Nullam arcu mauris, sagittis ut massa non, efficitur ultricies ligula.
-            Cras quis lacinia est. Duis sit amet porttitor augue. Morbi et tristique elit.
-            In eget magna a erat congue semper vel in quam. Fusce congue massa in euismod porttitor.
-            Proin gravida diam turpis, non tempor arcu suscipit in.
-            Phasellus dolor nibh, tristique eget venenatis quis, elementum id orci.
-            Duis sed condimentum purus. Etiam leo sem, mattis non tincidunt sed, pretium non ipsum.
-            Maecenas aliquam nunc dui, eget vehicula enim pellentesque in.
-            Aliquam porttitor, nisi nec tempor vulputate, tortor ligula ultrices diam, et ultricies odio dui et ipsum.
-            Etiam quis cursus nisi. Praesent id blandit sapien. Aliquam eget ipsum sed erat consequat sagittis et id quam.
+.row
+  .col-md-4.col-md-offset-1
+    %h4 Reviews
+    - @reviews.each do |review|
+      .row
+        .col-md-6.business-page-reviews
+          %b Username
+          %br
+          %b= "Rating: #{review.rating}"
+          %p= review.content
