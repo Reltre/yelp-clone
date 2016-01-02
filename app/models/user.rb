@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  has_secrure_password validations: false
+  has_secure_password validations: false
   has_many :reviews
 end

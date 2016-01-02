@@ -5,4 +5,7 @@ class PagesController < ApplicationController
     @businesses = Business.limit(5)
   end
 
+  def sign_up
+    render :sign_up
+  end
 end
