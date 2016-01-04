@@ -1,6 +1,6 @@
 .row#signup-form
   .col-md-4.col-md-offset-4
-    = form_tag users_path do
+    = form_for @user do
       .form-group#name-form
         %ul.list-unstyled.list-inline
           %li
