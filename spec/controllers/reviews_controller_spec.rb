@@ -13,6 +13,15 @@ describe ReviewsController do
   describe "POST create" do
     #expects data of the type review { "rating" => "some number", "content" => "string"}
     context "when authenticated" do
+      before do
+        set_current_user
+      end
+
+      it "redirects to the business page" do
+        post :create, business_id: business_id,
+                      review: { "rating": "3", "content": "Meh." }
+        expect(response).to redirect_to(business_path(business_id))
+      end
 
       context "with valid input" do
         it "saves a review" do
@@ -27,7 +36,11 @@ describe ReviewsController do
           expect(Review.first.business.id).to eq(business_id)
         end
 
-        it "associates the current user with a new review"
+        it "associates the current user with a new review" do
+          post :create, business_id: business_id, user: current_user,
+                        review: { "rating": "3", "content": "Meh." }
+          expect(Review.first.user).to eq(current_user)
+        end
 
         it "sets a flash success message" do
           post :create, business_id: business_id,
@@ -47,9 +60,5 @@ describe ReviewsController do
     end
   end
 
-  it "redirects to the business page" do
-    post :create, business_id: business_id,
-                  review: { "rating": "3", "content": "Meh." }
-    expect(response).to redirect_to(business_path(business_id))
-  end
+
 end
