@@ -16,9 +16,18 @@
         = button_tag type: 'submit', class: "btn btn-danger yelp-main-btn-color", id: "search-btn" do
           %span.glyphicon.glyphicon-search
   .col-md-2.col-md-offset-1
-    #login-register
-      .row
-        - 
-        = link_to 'Log in', '#', class: "btn btn-danger yelp-main-btn-color", id: "login-btn"
-      .row
-        = link_to 'Sign Up', sign_up_path, class: "btn btn-sm btn-danger", id: "register-btn"
+    - if signed_in?
+      .row#user-menu
+        .dropdown
+          %a#dropdown-link(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+            = "Welcome, #{current_user.first_name}"
+            %span(class="caret")
+          %ul.dropdown-menu#user-dropdown(aria-labelledby="dLabel")
+            %li= link_to 'Sign Out', sign_out_path, class: "btn btn-sm btn-danger", id: "sign-out"
+
+    - else
+      #login-register
+        .row
+          = link_to 'Log in', sign_in_path, class: "btn btn-danger yelp-main-btn-color", id: "login-btn"
+          .row
+          = link_to 'Sign Up', sign_up_path, class: "btn btn-sm btn-danger", id: "register-btn"

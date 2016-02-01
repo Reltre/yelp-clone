@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :require_sign_in, only: [:create]
 
   def new
     @review = Review.new

@@ -7,16 +7,16 @@ class ApplicationController < ActionController::Base
   @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def logged_in?
+  def signed_in?
     !!current_user
   end
 
-  def require_login
-    unless logged_in?
+  def require_sign_in
+    unless signed_in?
       flash[:info] = "You must be logged in to access that page."
-      redirect_to log_in_path
+      redirect_to sign_in_path
     end
   end
 
-  helper_method :logged_in?, :current_user
+  helper_method :signed_in?, :current_user
 end
