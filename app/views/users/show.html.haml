@@ -1,0 +1,28 @@
+#user-page
+  %h3= "Name: #{current_user.first_name} #{current_user.last_name}"
+  %br
+  = "Email: #{current_user.email}"
+  %br
+  = "Location"
+  %br
+  = "About me"
+  %hr
+  %h4#user-profile-reviews-title Reviews
+  - current_user.reviews.each do |review|
+    .row.user-profile-review
+      .col-md-1
+        = image_tag "", width: "80", height: "80"
+        = link_to "#{review.business.name}", business_path
+      .col-md-2
+        %ul.list-unstyled
+          %li= "#{format_price_range(review.business.price_range)} - #{review.business.description}\n"
+          %li= "#{review.business.address}\n"
+          %li= "Rating: #{review.rating}"
+
+      .review-content-user-profile.col-md-6
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Curabitur sit amet urna consequat, luctus massa non, pharetra neque.
+        Nullam arcu mauris, sagittis ut massa non, efficitur ultricies ligula.
+        Cras quis lacinia est. Duis sit amet porttitor augue. Morbi et tristique elit.
+        In eget magna a erat congue semper vel in quam. Fusce congue massa in euismod porttitor.
+        Proin gravida diam turpis, non tempor arcu suscipit in.

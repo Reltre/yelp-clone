@@ -23,7 +23,8 @@
             = "Welcome, #{current_user.first_name}"
             %span(class="caret")
           %ul.dropdown-menu#user-dropdown(aria-labelledby="dLabel")
-            %li= link_to 'Sign Out', sign_out_path, class: "btn btn-sm btn-danger", id: "sign-out"
+            %li= link_to 'Sign Out', sign_out_path, class: "btn btn-sm btn-danger", id: "dropdown-button"
+            %li= link_to 'Profile', user_path(current_user), class: "btn btn-sm btn-danger", id: "dropdown-button"
 
     - else
       #login-register

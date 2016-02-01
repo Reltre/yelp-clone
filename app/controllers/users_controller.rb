@@ -14,10 +14,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @reviews = current_user.reviews
+    render :show
+  end
+
   private
 
   def user_params
-    binding.pry
     params.require(:user).permit(:email, :password, :first_name, :last_name)
   end
 end

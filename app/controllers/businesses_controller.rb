@@ -13,7 +13,6 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    # binding.pry
     @business.normalize_time
 
     if @business.save

@@ -23,4 +23,21 @@ describe UsersController do
 
     it "should set flash for incorrect email or password with invalid input"
   end
+
+  describe "GET show" do
+    before do
+      set_current_user
+    end
+
+    it "should set past reviews for this user" do
+      user = User.first
+      2.times do
+        user.reviews << Fabricate(:review)
+      end
+      get :show, id: user.id
+      expect(assigns(:reviews)).to eq(current_user.reviews)
+    end
+
+    it "should set user information"
+  end
 end
