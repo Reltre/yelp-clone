@@ -17,3 +17,8 @@ Path:
 3. Users
 4. Rating
 5. Make it look pretty.
+
+Todo:
+-Remove prys
+-implement search functionality
+-user menu implementation

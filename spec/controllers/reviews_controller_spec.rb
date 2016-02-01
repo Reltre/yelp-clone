@@ -57,8 +57,12 @@ describe ReviewsController do
     context "when not authenticated" do
       it "redirects to the home page"
       it "displays an error message"
+      it_behaves_like 'require_log_in' do
+        let(:action) do
+          post :create, business_id: business_id,
+                        review: { "rating": "3", "content": "Meh." }
+        end
+      end
     end
   end
-
-
 end

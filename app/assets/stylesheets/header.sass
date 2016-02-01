@@ -3,21 +3,37 @@
 #main-search-area
   margin-top: 4%
 
-
 #top-header
   background-color: $yelp-clone-red
   height: 80px
 
+#user-menu
+  margin-top: 30px
 
 .main-search-input
   border: none
   font-weight: normal
 
+#dropdown-link, #sign-out
+  color: white
+  text-decoration: none
+  background-color: $yelp-clone-red
+  &:hover
+    background-color: $yelp-clone-red
+    color: white
+    text-decoration: none
 
+#user-dropdown, #sign-out
+  background-color: $dark-red-yelp
+  border: none
+  &:hover, &:active, &:focus
+    background-color: $dark-red-yelp
+
+#sign-out:hover
+  background-color: $yelp-clone-red
 
 #login-register
   margin-top: 2%
-
 
 #register-btn
   background-color: $yelp-clone-red
@@ -25,8 +41,6 @@
   border: none
   &:hover
     background-color: $dark-red-yelp
-
-
 
 #login-btn, #search-btn
   font-weight: bold

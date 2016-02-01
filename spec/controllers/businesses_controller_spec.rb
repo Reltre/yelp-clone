@@ -24,6 +24,8 @@ describe BusinessesController do
       [[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample]
     end
 
+    before { set_current_user }
+
     context "with valid input" do
       before do
         post :create, business: business_params.merge({time_open: time, time_close: time})
@@ -47,6 +49,13 @@ describe BusinessesController do
       it "sets flash danger" do
         post :create, business: business_params.merge({name: nil, time_open:time, time_close: time})
         should set_flash[:danger].to("Something went wrong with creating your business.")
+      end
+    end
+
+    it_behaves_like 'require_log_in' do
+      let(:action) do
+        post :create,
+          business: business_params.merge({time_open: time, time_close: time})
       end
     end
 

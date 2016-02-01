@@ -1,4 +1,6 @@
 class BusinessesController < ApplicationController
+  before_action :require_sign_in, only:[:create]
+
   def index
     @businesses = []
     Business.find_each { |business| @businesses << business }
