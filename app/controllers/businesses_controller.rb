@@ -8,12 +8,10 @@ class BusinessesController < ApplicationController
 
   def new
     @business = Business.new
-    render :new
   end
 
   def create
     @business = Business.new(business_params)
-    @business.normalize_time
 
     if @business.save
       flash[:success] = "Your business was successfully created."

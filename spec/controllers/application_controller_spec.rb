@@ -9,8 +9,4 @@ describe ApplicationController do
       expect(assigns(:current_user)).to eq user.id
     end
   end
-
-  describe "#logged_in?" do
-
-  end
 end

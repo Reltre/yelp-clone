@@ -1,35 +1,34 @@
-%section.col-md-5.col-md-offset-4
-.row
-  .section-header.col-md-offset-1
-    %h3= @business.name
-  #new-review.home-business-btn.col-md-4.col-md-offset-2
-    %a(href="#review-form" class="btn btn-default yelp-main-btn-color" data-toggle="collapse")
-      + New Review
-    #review-form.collapse
-      .well
-        = form_for [@business, @review] do |f|
-          .form-group
-            = f.label :rating, "Rating"
-            = f.number_field :rating, class: 'form-control'
-          .form-group
-            = f.text_area :content, class: 'form-control'
-          .form-group
-            %input(type="submit" name="commit" value="Post Review" class= 'form-control yelp-main-btn-color' data-target="review-form" data-toggle="collapse")
-  .business-row.row
-    .col-md-4.col-md-offset-1
-      .business-type-list-photo
+%section
+  .row
+    .section-header.col-md-offset-1
+      %h3= @business.name
+    #new-review.home-business-btn.col-md-4.col-md-offset-1
+      %a(href="#review-form" class="btn btn-default yelp-main-btn-color" data-toggle="collapse")
+        + New Review
+      #review-form.collapse
+        .well
+          = form_for [@business, @review] do |f|
+            .form-group
+              = f.label :rating, "Rating"
+              = f.number_field :rating, class: 'form-control'
+            .form-group
+              = f.text_area :content, class: 'form-control'
+            .form-group
+              %input(type="submit" name="commit" value="Post Review" class= 'form-control yelp-main-btn-color' data-target="review-form" data-toggle="collapse")
+      #business-show-reviews
+        %h4 Reviews
+        - @reviews.each do |review|
+          .row
+            .col-md-6.business-page-reviews
+              %b Username
+              %br
+              %b= "Rating: #{review.rating}"
+              %p= review.content
+    .business-row.row
+      .col-md-4.col-md-offset-1
         = link_to business_path(@business) do
-          = image_tag "", class:"business-image"
+          = image_tag "", id:"business_show_image"
         %h4= link_to "#{@business.name}", business_path(@business)
-        %h4 Rating
-        %h4= @business.address
-.row
-  .col-md-4.col-md-offset-1
-    %h4 Reviews
-    - @reviews.each do |review|
-      .row
-        .col-md-6.business-page-reviews
-          %b Username
-          %br
-          %b= "Rating: #{review.rating}"
-          %p= review.content
+        %h4= "Rating: #{@business.rating}"
+        %p.business-content= @business.description
+        %p= @business.address
