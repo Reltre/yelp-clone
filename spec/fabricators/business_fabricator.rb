@@ -4,6 +4,6 @@ Fabricator :business do
   address { Faker::Address.street_address }
   description { Faker::Lorem.sentence }
   phone_number { Faker::PhoneNumber.phone_number }
-  time_open { Time.parse([[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample].join(" "))}
-  time_close { Time.parse([[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample].join(" ")) }
+  time_open { [[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample] }
+  time_close { [[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample] }
 end
