@@ -9,25 +9,27 @@
   %section.col-md-5.col-md-offset-2
     %header
       %h3 Recent Reviews
-    - @reviews.each do |review|
-      .review.row
-        .col-md-5.well
-          %h4=link_to review.business.name, business_path(review.business)
-          %p
-            = "Rating: #{review.rating}"
-            %br
-            = review.content
-            -# Add link to review content on business page with a 'read more' link.
+    #recent-reviews
+      - @reviews.each do |review|
+        .review.row
+          .col-md-5.well
+            %h4=link_to review.business.name, business_path(review.business)
+            %p
+              = "Rating: #{review.rating}"
+              %br
+              = review.content
+              -# Add link to review content on business page with a 'read more' link.
   %section.col-md-5
     %header
       %h3 New Businesses
-    - @businesses.each do |business|
-      .row.business-row
-        .col-xs-6.col-md-6#business-thumbnail-
-          = link_to business_path(business), class: "thumbnail" do
-            = image_tag 'placeholder-image.svg'
-          .business-list-info
-            = link_to "Business Title", "#", class:"business-list-link"
-            %h5 Rating
-            %h5.hidden= business.address
-            -# Use collapse bootstrap js to make this nice later
+    #recent-businesses
+      - @businesses.each do |business|
+        .row.business-row
+          .col-xs-6.col-md-6
+            = link_to business_path(business), class: "thumbnail business-thumbnail" do
+              = image_tag 'placeholder-image.svg'
+            .business-list-info
+              %h5= business.name
+              %h5= "Rating: #{business.rating}"
+              %h5.hidden= business.address
+              -# Use collapse bootstrap js to make this nice later
