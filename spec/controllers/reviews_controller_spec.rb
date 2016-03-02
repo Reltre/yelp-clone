@@ -50,13 +50,15 @@ describe ReviewsController do
       end
 
       context "with invalid input" do
-        it "sets a flash error message"
+        it "sets a flash error message" do
+          post :create, business_id: business_id,
+                        review: { "content": "Meh." }
+          should set_flash[:danger].to("You must set a rating to make a review.")
+        end
       end
     end
 
     context "when not authenticated" do
-      it "redirects to the home page"
-      it "displays an error message"
       it_behaves_like 'require_log_in' do
         let(:action) do
           post :create, business_id: business_id,
