@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
-  def create #ajax this jazz after initial implementation
+  def create
     review = Review.new(review_params)
     review.business_id = params[:business_id]
     review.user_id = current_user.id
