@@ -20,7 +20,8 @@
         - @reviews.each do |review|
           .row
             .col-md-6.business-page-reviews
-              %b Username
+              = link_to user_path(review.user) do
+                #{review.user.first_name} #{review.user.last_name}
               %br
               %b= "Rating: #{review.rating}"
               %p= review.content

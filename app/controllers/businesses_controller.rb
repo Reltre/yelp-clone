@@ -23,6 +23,7 @@ class BusinessesController < ApplicationController
   end
 
   def show
+    binding.pry
     @business  = Business.find(params[:id])
     @review = Review.new
     @reviews   = @business.reviews
