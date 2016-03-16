@@ -17,7 +17,7 @@
             %p
               = "Rating: #{review.rating}"
               %br
-              = review.content
+              = shortened_content(review.content)
   %section.col-md-5
     %header
       %h3 New Businesses
