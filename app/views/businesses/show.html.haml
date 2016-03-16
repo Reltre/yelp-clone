@@ -30,7 +30,7 @@
     .business-row
       .col-md-4.col-md-offset-1
         = link_to business_path(@business) do
-          = image_tag "", id:"business_show_image"
+          = image_tag @business.photo_url, id:"business_show_image"
         %h4= link_to "#{@business.name}", business_path(@business)
         %h4= "Rating: #{@business.rating}"
         %p.business-content= @business.description
