@@ -1,5 +1,6 @@
 .business-list-info
-  margin-top: -110px
+  position: absolute
+  margin-top: -80px
   margin-left: 10px
   color: white
   text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray
@@ -7,18 +8,20 @@
   height: 130px
   word-wrap: break-word
 
+.business-address
+  overflow: hidden
+
 a > img.business-image
   height: 100%
   width: 100%
 
-.business-list-link
-  color: #FFFFFF
-  border: 1px white
+a.business-list-link
+  color: $dark-red-yelp
+  &:hover, &:focus
+  text-decoration: none
 
 .business-row
   margin-bottom: 1em
-
-.businesses-page-info
 
 .page-offset
   margin-left: 25px

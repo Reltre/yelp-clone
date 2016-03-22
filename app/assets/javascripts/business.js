@@ -1,12 +1,11 @@
 $(document).ready(function() {
-  $('.business-thumbnail').hover(function(){
-    var address = $(this).next().find('.business-address');
-    address.hide(function(){
-      address.parent().css('margin-top','-80px');
-    });
+  $('.business-list-content').hover(function(){
+    var address = $(this).last().find('.business-address');
+    address.parent().css('margin-top','-110px');
+    address.removeClass('hidden');
   }, function () {
-    var address = $(this).next().find('.business-address');
-    address.parent().css('margin-top', '-110px');
-    address.show();
+    var address = $(this).last().find('.business-address');
+    address.addClass('hidden');
+    address.parent().css('margin-top', '-80px');
   });
 });
