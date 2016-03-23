@@ -17,7 +17,7 @@
             %p
               = "Rating: #{review.rating}"
               %br
-              = review.content
+              = shortened_content(review.content)
   %section.col-md-5
     %header
       %h3 New Businesses
@@ -25,10 +25,11 @@
       - @businesses.each do |business|
         .row.business-row
           .col-xs-6.col-md-6
-            = link_to business_path(business), class: "thumbnail business-thumbnail" do
-              - if business.photo_url
-                = image_tag business.photo_url, class: "business-image"
-            .business-list-info
-              %h5= business.name
-              %h5= "Rating: #{business.rating}"
-              %h5.hidden= business.address
+            .business-list-content
+              = link_to business_path(business), class: "thumbnail business-thumbnail" do
+                - if business.photo_url
+                  = image_tag business.photo_url, class: "business-image"
+              .business-list-info
+                %h5= business.name
+                %h5= "Rating: #{business.rating}"
+                %h5.business-address.hidden= business.address
