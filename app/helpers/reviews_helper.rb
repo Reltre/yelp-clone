@@ -1,4 +1,4 @@
-module ReviewHelper
+module ReviewsHelper
   def format_price_range(times)
     '$' * times
   end

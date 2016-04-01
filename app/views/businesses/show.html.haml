@@ -19,7 +19,7 @@
                   %input(type="submit" name="commit" value="Post Review" class= 'form-control yelp-main-btn-color' data-target="review-form" data-toggle="collapse")
       #business-show-reviews
         %h4 Reviews
-        - @reviews.each do |review|
+        - @business.reviews.each do |review|
           .row
             .col-md-6.business-page-reviews
               = link_to user_path(review.user) do

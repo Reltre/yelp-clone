@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :require_sign_in, only:[:create]
+  before_action :require_sign_in, only: :create
 
   def index
     @businesses = []
@@ -25,7 +25,6 @@ class BusinessesController < ApplicationController
   def show
     @business  = Business.find(params[:id])
     @review = Review.new
-    @reviews   = @business.reviews
     render :show
   end
 
