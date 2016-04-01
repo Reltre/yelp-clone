@@ -11,10 +11,10 @@
       .col-md-1
         = image_tag "", width: "80", height: "80"
         = link_to "#{review.business.name}", business_path(review.business_id)
-      .col-md-2
+      .col-md-2#user-information
         %ul.list-unstyled
-          %li= "#{format_price_range(review.business.price_range)} - #{review.business.description}\n"
-          %li= "#{review.business.address}\n"
+          %li= "#{format_price_range(review.business.price_range)} - #{review.business.description}"
+          %li= "#{review.business.address}"
           %li= "Rating: #{review.rating}"
 
       .review-content-user-profile.col-md-6

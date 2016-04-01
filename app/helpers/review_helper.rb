@@ -4,10 +4,9 @@ module ReviewHelper
   end
 
   def shortened_content(string)
-    content = string.match(/.+[\?.!;]/)
+    content = string.match(/.{,49}[ \?.!;]/)[0]
     return string if content.nil?
-    content = content[0,2].join
-    content.chop << "..." if content.size > 16
+    content.chop! << "..." if content.size > 49
     content
   end
 end
