@@ -5,6 +5,5 @@ class PagesController < ApplicationController
   end
 
   def sign_in
-    render :sign_in
   end
 end
