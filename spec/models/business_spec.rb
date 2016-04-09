@@ -3,15 +3,19 @@ require 'rails_helper'
 describe Business do
   it { should belong_to(:user) }
   it { should have_many(:reviews) }
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:description) }
+  it { should validate_presence_of(:time_open) }
+  it { should validate_presence_of(:time_close) }
 
   describe '#rating' do
+    let!(:business) { Fabricate(:business) }
+
     it "should return zero if no reviews present" do
-      business = Fabricate(:business)
       expect(business.rating).to eq(0)
     end
 
     it "should return the average of all user reviews" do
-      business = Fabricate(:business)
       review1 = Fabricate(:review, rating: 2)
       review2 = Fabricate(:review, rating: 4)
       review3 = Fabricate(:review, rating: 3)

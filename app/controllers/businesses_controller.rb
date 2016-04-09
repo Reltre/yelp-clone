@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :require_sign_in, only: :create
+  before_action :require_sign_in, only: [:new, :create]
 
   def index
     @businesses = []
@@ -28,22 +28,13 @@ class BusinessesController < ApplicationController
     render :show
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
   def business_params
     params.require(:business)
-          .permit(
-            :price_range, :name, :address, :description,
-            :phone_number, time_open:[], time_close:[]
-          )
+      .permit(
+        :price_range, :name, :address, :description,
+        :phone_number, time_open: [], time_close: []
+      )
   end
 end

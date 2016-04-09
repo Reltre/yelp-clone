@@ -11,24 +11,28 @@ describe BusinessesController do
   end
 
   describe "GET new" do
+    before { set_current_user }
+
     it "sets a business" do
       get :new
       expect(assigns(:business)).to be_a_new(Business)
     end
+
+    it_behaves_like 'require_log_in' do
+      let(:action) do
+        post :new
+      end
+    end
   end
 
   describe "POST create" do
-    #Test associations later on for User.
     let(:business_params) { Fabricate.attributes_for :business }
-    let(:time) do
-      [[*'01'..'12'].sample, [*'01'..'60'].sample, [" AM", "PM"].sample]
-    end
 
     before { set_current_user }
 
     context "with valid input" do
       before do
-        post :create, business: business_params.merge({time_open: time, time_close: time})
+        post :create, business: business_params
       end
 
       it "redirects to business show page" do
@@ -47,44 +51,33 @@ describe BusinessesController do
 
     context "with invalid input" do
       it "sets flash danger" do
-        post :create, business: business_params.merge({name: nil, time_open:time, time_close: time})
-        should set_flash[:danger].to("Something went wrong with creating your business.")
+        post :create, business: business_params.merge(name: nil)
+        should set_flash[:danger]
+          .to("Something went wrong with creating your business.")
       end
     end
 
     it_behaves_like 'require_log_in' do
       let(:action) do
-        post :create,
-          business: business_params.merge({time_open: time, time_close: time})
+        post :create, business: business_params
       end
     end
 
   end
 
   describe "GET show" do
-
-    let(:business) do
-      Fabricate(:business,
-                time_open: Time.parse("12 00 PM"),
-                time_close: Time.parse("1 00 PM")
-               )
-    end
+    let(:business) { Fabricate(:business) }
 
     before do
       get :show, id: business.id
     end
 
-    it "assigns business" do
+    it "sets business" do
       expect(assigns(:business)).to eq(business)
     end
 
-    it "assigns review" do
+    it "sets review" do
       expect(assigns(:review)).to be_a_new(Review)
-    end
-
-    it "assigns reviews" do
-      reviews = Review.all
-      expect(assigns(:reviews)).to match_array(reviews)
     end
   end
 end
