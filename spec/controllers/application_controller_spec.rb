@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe ApplicationController do
-  # Arbitrary RESTful actions created to test helper methods in the application controller.
+  # Arbitrary RESTful actions created to test helper methods in the application
+  # controller.
 
   controller do
     def index
@@ -41,7 +42,11 @@ describe ApplicationController do
   describe "#require_sign_in" do
     before { get :show, id: 10 }
 
-    it { should set_flash[:info].to "You must be logged in to access that page." }
+    it do
+      is_expected.to(
+        set_flash[:info].to "You must be logged in to access that page."
+      )
+    end
     it { expect(response).to redirect_to(sign_in_path) }
   end
 end

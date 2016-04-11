@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe User do
-  it { should have_many(:reviews) }
-  it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:password) }
+  it { is_expected.to have_many(:reviews) }
+  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:password) }
 
   describe "#full_name" do
     it "returns the first and last name" do

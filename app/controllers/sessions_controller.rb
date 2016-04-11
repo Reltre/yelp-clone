@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :require_sign_in, only: [:destroy] 
+  before_action :require_sign_in, only: [:destroy]
 
   def new
     redirect_to home_path if signed_in?
@@ -21,5 +21,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to home_path
   end
-
 end

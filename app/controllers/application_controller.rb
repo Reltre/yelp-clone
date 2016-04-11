@@ -12,10 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_sign_in
-    unless signed_in?
-      flash[:info] = "You must be logged in to access that page."
-      redirect_to sign_in_path
-    end
+    return if signed_in?
+    flash[:info] = "You must be logged in to access that page."
+    redirect_to sign_in_path
   end
 
   helper_method :signed_in?, :current_user

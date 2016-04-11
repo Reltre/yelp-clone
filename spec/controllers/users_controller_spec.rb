@@ -10,13 +10,13 @@ describe UsersController do
 
   describe "POST create" do
     context "with valid input" do
-      it "should redirect to the login page with valid input" do
+      it "should redirect to the login page" do
         user_attributes = Fabricate.attributes_for(:user)
         post :create, user: user_attributes
         expect(response).to redirect_to sign_in_path
       end
 
-      it  "should create a new user withh valid input" do
+      it  "should create a new user" do
         user_attributes = Fabricate.attributes_for(:user)
         post :create, user: user_attributes
         expect(User.count).to eq(1)
@@ -26,25 +26,16 @@ describe UsersController do
     context "with invalid input" do
       it do
         post :create, user: { email: "", password: ""}
-        is_expected.to set_flash[:danger].to "Invalid email or password"
+        is_expected.to set_flash[:danger].to("Invalid email or password")
       end
     end
   end
 
   describe "GET show" do
-    before do
-      set_current_user
-    end
-
-    it "should set past reviews for this user" do
-      user = User.first
-      2.times do
-        user.reviews << Fabricate(:review)
-      end
+    it "should set the current user" do
+      user = Fabricate(:user)
       get :show, id: user.id
-      expect(assigns(:reviews)).to eq(current_user.reviews)
+      expect(assigns(:user)).to eq(user)
     end
-
-    it "should set user information"
   end
 end

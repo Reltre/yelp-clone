@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-feature "User navigates to a business" do
+feature "User views a business" do
   given!(:user) { Fabricate(:user) }
   given!(:business) { Fabricate(:business) }
 
-  scenario "User makes a review" do
+  scenario "and makes a review" do
     sign_in(user)
     expect(current_path).to eq(home_path)
     within('#recent-businesses') do

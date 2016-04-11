@@ -1,13 +1,22 @@
 require 'rails_helper'
 
 describe ReviewsController do
-
   let(:business_id) { Fabricate(:business).id }
 
   describe "GET new" do
-    before { get :new, business_id: business_id }
+    context "when authenticated" do
+      it "sets a new review" do
+        set_current_user
+        get :new, business_id: business_id
+        expect(assigns(:review)).to be_a_new(Review)
+      end
+    end
 
-    it { expect(assigns(:review)).to be_a_new(Review) }
+    context "when not authenticated" do
+      it_behaves_like 'require_log_in' do
+        let(:action) { get :new, business_id: business_id }
+      end
+    end
   end
 
   describe "POST create" do
@@ -18,7 +27,7 @@ describe ReviewsController do
 
       it "redirects to the business page" do
         post :create, business_id: business_id,
-                      review: { "rating": "3", "content": "Meh." }
+                      review: Fabricate.attributes_for(:review)
         expect(response).to redirect_to(business_path(business_id))
       end
 
@@ -44,7 +53,9 @@ describe ReviewsController do
         it "sets a flash success message" do
           post :create, business_id: business_id,
                         review: Fabricate.attributes_for(:review)
-          should set_flash[:success].to("Your review was created successfully.")
+          is_expected.to(
+            set_flash[:success].to("Your review was created successfully.")
+          )
         end
       end
 
@@ -52,7 +63,9 @@ describe ReviewsController do
         it "sets a flash error message" do
           post :create, business_id: business_id,
                         review: { "content": "Meh." }
-          should set_flash[:danger].to("You must set a rating to make a review.")
+          is_expected.to(
+            set_flash[:danger].to("You must set a rating to make a review.")
+          )
         end
       end
     end

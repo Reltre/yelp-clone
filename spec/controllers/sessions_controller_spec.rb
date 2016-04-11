@@ -12,7 +12,6 @@ describe SessionsController do
 
   describe "POST create" do
     context "with successful authentication" do
-
       let(:user) { Fabricate(:user) }
 
       before do
@@ -20,9 +19,8 @@ describe SessionsController do
       end
 
       it { expect(response).to redirect_to home_path }
-      it { should set_session[:user_id].to(user.id) }
-      it { should set_flash[:success].to "You've successfully logged in!" }
-
+      it { is_expected.to set_session[:user_id].to(user.id) }
+      it { is_expected.to set_flash[:success].to "You've successfully logged in!" }
     end
 
     context "with unsuccessful authentication" do
@@ -32,20 +30,17 @@ describe SessionsController do
         post :create, email: user.email, password: "badpassword"
       end
 
-      it { should set_flash[:danger].to "Incorrect email or password" }
+      it { is_expected.to set_flash[:danger].to "Incorrect email or password" }
     end
   end
 
-  describe "POST destroy" do
+  describe "DELETE destroy" do
     before do
-      post :destroy
+      set_current_user
+      delete :destroy
     end
 
-    it "sets the session user_id to nil" do
-      Fabricate(:user)
-      should set_session[:user_id].to be_nil
-    end
-
+    it { is_expected.to set_session[:user_id].to be_nil }
     it { expect(response).to redirect_to home_path }
   end
 end

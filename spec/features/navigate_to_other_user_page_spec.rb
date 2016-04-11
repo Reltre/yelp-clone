@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Navigate to another user's page" do
+feature "View another user's page" do
   given!(:user) { Fabricate(:user, first_name: "Jane", last_name: "Robbins") }
   given!(:business) { Fabricate(:business) }
   given!(:review) { Fabricate(:review, user: user, business: business) }

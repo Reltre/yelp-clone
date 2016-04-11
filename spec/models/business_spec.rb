@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe Business do
-  it { should belong_to(:user) }
-  it { should have_many(:reviews) }
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:description) }
-  it { should validate_presence_of(:time_open) }
-  it { should validate_presence_of(:time_close) }
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to have_many(:reviews) }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:description) }
+  it { is_expected.to validate_presence_of(:time_open) }
+  it { is_expected.to validate_presence_of(:time_close) }
 
   describe '#rating' do
     let!(:business) { Fabricate(:business) }

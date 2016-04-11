@@ -62,7 +62,6 @@ describe BusinessesController do
         post :create, business: business_params
       end
     end
-
   end
 
   describe "GET show" do
