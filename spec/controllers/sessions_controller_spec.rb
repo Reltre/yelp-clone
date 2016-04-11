@@ -3,7 +3,7 @@ require 'rails_helper'
 describe SessionsController do
 
   describe "GET new" do
-    it "should redirect to home a user is logged in" do
+    it "should redirect to home if user is logged in" do
       set_current_user
       get :new
       expect(response).to redirect_to home_path

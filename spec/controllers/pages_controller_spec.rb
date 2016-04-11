@@ -2,12 +2,11 @@ require 'rails_helper'
 
 describe PagesController do
   describe "GET home" do
-
-    it "sets @reviews" do
+    it "sets @reviews in descending order" do
       review1 = Fabricate(:review)
       review2 = Fabricate(:review)
       get :home
-      expect(assigns(:reviews)).to match_array([review1, review2])
+      expect(assigns(:reviews)).to eq([review2, review1])
     end
 
     it "sets no more than 5 reviews" do
@@ -16,11 +15,11 @@ describe PagesController do
       expect(assigns(:reviews).count).to be < 6
     end
 
-    it "sets @businesses" do
+    it "sets @businesses in descending order" do
       business1 = Fabricate(:business)
       business2 = Fabricate(:business)
       get :home
-      expect(assigns(:businesses)).to match_array([business1, business2])
+      expect(assigns(:businesses)).to eq([business2, business1])
     end
 
     it "sets no more than 5 businesses" do
