@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe SessionsController do
-
   describe "GET new" do
     it "should redirect to home if user is logged in" do
       set_current_user
