@@ -27,8 +27,8 @@
             %li= link_to 'Profile', user_path(current_user), class: "btn btn-sm dropdown-button"
 
     - else
-      #login-register
+      #signin-register
         .row
-          = link_to 'Log in', sign_in_path, class: "btn btn-danger yelp-default-btn", id: "login-btn"
+          = link_to 'Log in', sign_in_path, class: "btn yelp-default-btn", id: "signin-btn"
         .row
-          = link_to 'Sign Up', sign_up_path, class: "btn btn-sm btn-danger", id: "register-btn"
+          = link_to 'Sign Up', sign_up_path, class: "btn btn-sm", id: "register-btn"

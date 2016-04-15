@@ -17,7 +17,6 @@
   text-decoration: none
   &:hover
     background-color: $yelp-clone-red
-    color: white
     text-decoration: none
 
 #user-dropdown, #user-dropdown .dropdown-button
@@ -29,15 +28,19 @@
 #user-dropdown .dropdown-button:hover
   background-color: $yelp-clone-red
 
-#login-register
+#signin-register
   margin-top: 5%
 
 #register-btn
   background-color: $yelp-clone-red
-  font-weight: bold
+  color: #FFFFFF
   border: none
-  &:hover
+  &:hover, &:active
     background-color: $dark-red-yelp
+    color: #FFFFFF
+  &:focus
+    color: #FFFFFF
 
-#login-btn, #search-btn
+
+#signin-btn, #search-btn, #register-btn
   font-weight: bold
