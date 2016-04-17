@@ -26,7 +26,7 @@
           %li -
           %li= select_hour(Time.new, {start_hour: 1, end_hour: 12}, class: 'form-control', name: 'business[time_close][]')
           %li= select_minute(DateTime.new, {}, class: 'form-control', name: 'business[time_close][]')
-          %li= f.select(:time_open,["AM", "PM"],{}, class: 'form-control', name: 'business[time_close][]')
+          %li= f.select(:time_close,["AM", "PM"],{}, class: 'form-control', name: 'business[time_close][]')
       .form-group
         = f.label "Name"
         = f.text_field :name, class: 'form-control'

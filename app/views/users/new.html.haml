@@ -1,4 +1,4 @@
-.row#signup-form
+.row#register-form
   .col-md-4.col-md-offset-4
     = form_for @user do |f|
       .form-group#name-form
@@ -16,4 +16,4 @@
         %label.hidden Password
         = f.password_field :password, class: 'form-control',placeholder: 'Password'
 
-      = f.submit "Sign Up", class: 'form-control', id: 'sign-up-submit-btn'
+      = f.submit "Sign Up", class: 'form-control', id: 'register-submit-btn'
