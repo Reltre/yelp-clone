@@ -33,7 +33,7 @@ Business.create(
 )
 
 Business.create(
-  user_id: sally, price_range: 3, name: 'Judy\'s Fabrics',
+  user: sally, price_range: 3, name: 'Judy\'s Fabrics',
   address: '22235 Orange St., Newark, PA 3576',
   description: 'Fabrics, Arts, Crafts, and More!', phone_number: '723-559-8121',
   time_open: %w(08 00 AM), time_close: %w(09 00 PM),

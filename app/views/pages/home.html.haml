@@ -1,9 +1,9 @@
 .row
   .col-md-2.col-md-offset-2.home-business-btn
-    = link_to "Businessses", businesses_path,  class: "btn btn-default yelp-default-btn"
+    = link_to "Businessses", businesses_path,  class: "btn yelp-default-btn"
   - if signed_in?
     .col-md-2.col-md-offset-3.home-business-btn
-      = link_to "+ New Business", new_business_path, class: "btn btn-default yelp-default-btn"
+      = link_to "+ New Business", new_business_path, class: "btn yelp-default-btn"
 
 #home_content.row
   %section.col-md-5.col-md-offset-2

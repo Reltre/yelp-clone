@@ -2,45 +2,50 @@
   .section-header
     %h3 New Business
 .row
-  .col-md-6.col-md-offset-1#review-new-content
+  .col-md-offset-1#review-new-content
     = form_for @business do |f|
-      .form-group
-        .btn-group(data-toggle="buttons")
-          %label.btn.btn-default
-            = f.radio_button("price_range", 1)
-            $
-          %label.btn.btn-default
-            = f.radio_button("price_range", 2)
-            $$
-          %label.btn.btn-default
-            = f.radio_button("price_range", 3)
-            $$$
-          %label.btn.btn-default
-            = f.radio_button("price_range", 4)
-            $$$$
-      .form-group
-        %ul.list-inline
-          %li= select_hour(Time.new, {start_hour: 1, end_hour: 12}, class: 'form-control', name: 'business[time_open][]')
-          %li= select_minute(DateTime.new, {}, class: 'form-control', name: 'business[time_open][]')
-          %li= f.select(:time_open,["AM", "PM"],{}, class: 'form-control', name: 'business[time_open][]')
-          %li -
-          %li= select_hour(Time.new, {start_hour: 1, end_hour: 12}, class: 'form-control', name: 'business[time_close][]')
-          %li= select_minute(DateTime.new, {}, class: 'form-control', name: 'business[time_close][]')
-          %li= f.select(:time_close,["AM", "PM"],{}, class: 'form-control', name: 'business[time_close][]')
-      .form-group
-        = f.label "Name"
-        = f.text_field :name, class: 'form-control'
-      .form-group
-        = f.label "Description"
-        = f.text_field :description, class: 'form-control'
-      .form-group
-        = f.label "Address"
-        = f.text_field :address, class: 'form-control'
-      .form-group
-        = f.label "Phone Number"
-        = f.telephone_field :phone_number, class: 'form-control'
-      .form-group
-        = f.label "Photo URL"
-        = f.telephone_field :photo_url, class: 'form-control'
-      .form-group
-        = f.submit "Add Business", class: 'btn btn-danger yelp-default-btn'
+      .col-md-4
+        .form-group
+          .btn-group(data-toggle="buttons")
+            %label.btn.btn-default
+              = f.radio_button("price_range", 1)
+              $
+            %label.btn.btn-default
+              = f.radio_button("price_range", 2)
+              $$
+            %label.btn.btn-default
+              = f.radio_button("price_range", 3)
+              $$$
+            %label.btn.btn-default
+              = f.radio_button("price_range", 4)
+              $$$$
+        .form-group
+          %ul.list-inline
+            %li= select_hour(Time.new, {start_hour: 1, end_hour: 12}, class: 'form-control', name: 'business[time_open][]')
+            %li= select_minute(DateTime.new, {}, class: 'form-control', name: 'business[time_open][]')
+            %li= f.select(:time_open,["AM", "PM"],{}, class: 'form-control', name: 'business[time_open][]')
+            %li -
+            %li= select_hour(Time.new, {start_hour: 1, end_hour: 12}, class: 'form-control', name: 'business[time_close][]')
+            %li= select_minute(DateTime.new, {}, class: 'form-control', name: 'business[time_close][]')
+            %li= f.select(:time_close,["AM", "PM"],{}, class: 'form-control', name: 'business[time_close][]')
+        .row.form-group
+          .col-md-4.col-md-offset-1
+            = f.button class: 'btn form-submit-btn', id: 'business-submit' do
+              Add Business
+              %span.glyphicon.glyphicon-plus(aria-hidden="true")
+      .col-md-6
+        .form-group
+          = f.label "Name"
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label "Description"
+          = f.text_field :description, class: 'form-control'
+        .form-group
+          = f.label "Address"
+          = f.text_field :address, class: 'form-control'
+        .form-group
+          = f.label "Phone Number"
+          = f.telephone_field :phone_number, class: 'form-control'
+        .form-group
+          = f.label "Photo URL"
+          = f.telephone_field :photo_url, class: 'form-control'

@@ -17,7 +17,7 @@ class BusinessesController < ApplicationController
       flash[:success] = "Your business was successfully created."
       redirect_to business_path @business
     else
-      flash[:danger] = "Something went wrong with creating your business."
+      flash.now[:danger] = "Something went wrong with creating your business."
       render :new
     end
   end

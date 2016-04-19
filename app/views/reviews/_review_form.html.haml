@@ -1,0 +1,15 @@
+#new-review
+  %a(href="#review-form" class="btn yelp-default-btn" data-toggle="collapse")
+    + New Review
+  #review-form.collapse
+    .well
+      = form_for [@business, @review] do |f|
+        .form-group
+          = f.label :rating, "Rating"
+          = f.number_field :rating, class: 'form-control', min: 1, max: 5
+        .form-group
+          = f.text_area :content, class: 'form-control'
+        .form-group
+          %input(type="submit" name="commit" value="Post Review"
+                 class="form-control yelp-default-btn" data-target="review-form"
+                 data-toggle="collapse")
