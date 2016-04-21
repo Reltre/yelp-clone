@@ -3,13 +3,15 @@ class Business < ActiveRecord::Base
   has_many :reviews
 
   validates_presence_of :name, :description, :time_open, :time_close
-  before_save on: [:create, :update] do
-    normalize_time
-  end
+  before_save :normalize_time
 
   def rating
     return 0 if reviews.empty?
     reviews.map(&:rating).reduce(:+) / reviews.count
+  end
+
+  def next_batch(value)
+    Business.all.limit(5).offset(value)
   end
 
   private

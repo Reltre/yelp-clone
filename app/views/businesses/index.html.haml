@@ -1,18 +1,9 @@
 %header.row
   .col-md-2.page-offset
     %h2 Businesses
-%section.col-md-5.col-md-offset-4
-.row
-  - @businesses.each do |business|
-    .section-header.col-md-offset-1
-      %h3= business.name
-    .business-row.row
-      .col-md-5.col-md-offset-1
-        = link_to business_path(business), class: "thumbnail business-thumbnail" do
-          - if business.photo_url
-            = image_tag business.photo_url, class: "business-image"
-      .col-md-5
-        .businesses-page-info
-          %h4= "Rating: #{business.rating}"
-          %h4= link_to business.name, business_path(business), class:"business-list-link"
-          %h4= business.address
+%section.row
+  .col-md-10#list-businesses
+    = render @businesses
+  .row
+    .col-md-2.col-md-offset-5
+      = link_to "More Businesses", businesses_path, remote: true, class: 'btn btn-large yelp-default-btn'

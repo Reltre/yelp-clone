@@ -2,8 +2,20 @@ class BusinessesController < ApplicationController
   before_action :require_sign_in, only: [:new, :create]
 
   def index
-    @businesses = []
-    Business.find_each { |business| @businesses << business }
+    session[:start] ||= 0
+    @businesses = Business.all.limit(5)
+    respond_to do |format|
+      format.html
+      format.js do
+        business_size = Business.all.size
+        session[:start] = if session[:start] >= business_size - 5
+                            0
+                          else
+                            session[:start] + 5
+                          end
+        @businesses = Business.next_batch(session[:start])
+      end
+    end
   end
 
   def new
