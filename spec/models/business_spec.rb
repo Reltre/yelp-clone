@@ -11,17 +11,14 @@ describe Business do
   describe '#rating' do
     let!(:business) { Fabricate(:business) }
 
-    it "should return zero if no reviews present" do
+    it "returns zero if no reviews present" do
       expect(business.rating).to eq(0)
     end
 
-    it "should return the average of all user reviews" do
-      review1 = Fabricate(:review, rating: 2)
-      review2 = Fabricate(:review, rating: 4)
-      review3 = Fabricate(:review, rating: 3)
-      business.reviews << review1 << review2 << review3
-      average = (review1.rating + review2.rating + review3.rating) / 3
-      expect(business.rating).to eq(average)
+    it "returns the average of all user reviews" do
+      Fabricate(:review, business: business, rating: 2)
+      Fabricate(:review, business: business, rating: 4)
+      expect(business.rating).to eq(3)
     end
   end
 end

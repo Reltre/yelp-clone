@@ -7,9 +7,13 @@ feature "View another user's page" do
 
   scenario "through a posted review" do
     visit home_path
+    go_to_user_page('Jane Robbins')
+    expect(page).to have_text('Jane Robbins')
+  end
+
+  def go_to_user_page(name)
     within('div#recent-reviews') do
-      find('.review .col-md-5 h5 a', text: 'Jane Robbins').click
+      find('.review .col-md-5 h5 a', text: name).click
     end
-    expect(current_path).to eq(user_path(user.id))
   end
 end

@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :require_sign_in, only: [:new, :create]
 
-  def new
-    @review = Review.new
-  end
-
   def create
     review = Review.new(review_params.merge(business_id: params[:business_id],
                                             user_id:     current_user.id)

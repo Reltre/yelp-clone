@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe UsersController do
   describe "GET new" do
-    it "should set a new user" do
+    it "sets a new user" do
       get :new
       expect(assigns(:user)).to be_a_new(User)
     end
@@ -10,13 +10,13 @@ describe UsersController do
 
   describe "POST create" do
     context "with valid input" do
-      it "should redirect to the login page" do
+      it "redirects to the login page" do
         user_attributes = Fabricate.attributes_for(:user)
         post :create, user: user_attributes
         expect(response).to redirect_to sign_in_path
       end
 
-      it  "should create a new user" do
+      it "creates a new user" do
         user_attributes = Fabricate.attributes_for(:user)
         post :create, user: user_attributes
         expect(User.count).to eq(1)
@@ -32,7 +32,7 @@ describe UsersController do
   end
 
   describe "GET show" do
-    it "should set the current user" do
+    it "sets the current user" do
       user = Fabricate(:user)
       get :show, id: user.id
       expect(assigns(:user)).to eq(user)

@@ -3,22 +3,6 @@ require 'rails_helper'
 describe ReviewsController do
   let(:business_id) { Fabricate(:business).id }
 
-  describe "GET new" do
-    context "when authenticated" do
-      it "sets a new review" do
-        set_current_user
-        get :new, business_id: business_id
-        expect(assigns(:review)).to be_a_new(Review)
-      end
-    end
-
-    context "when not authenticated" do
-      it_behaves_like 'require_log_in' do
-        let(:action) { get :new, business_id: business_id }
-      end
-    end
-  end
-
   describe "POST create" do
     context "when authenticated" do
       before do

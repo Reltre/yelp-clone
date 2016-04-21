@@ -45,14 +45,15 @@ describe BusinessesController do
       end
 
       it "sets flash success" do
-        should set_flash[:success].to('Your business was successfully created.')
+        is_expected.to set_flash[:success]
+          .to('Your business was successfully created.')
       end
     end
 
     context "with invalid input" do
       it "sets flash danger" do
         post :create, business: business_params.merge(name: nil)
-        should set_flash[:danger]
+        is_expected.to set_flash.now[:danger]
           .to("Something went wrong with creating your business.")
       end
     end
@@ -71,11 +72,11 @@ describe BusinessesController do
       get :show, id: business.id
     end
 
-    it "sets business" do
+    it "sets a business" do
       expect(assigns(:business)).to eq(business)
     end
 
-    it "sets review" do
+    it "sets a review" do
       expect(assigns(:review)).to be_a_new(Review)
     end
   end

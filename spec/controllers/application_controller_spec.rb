@@ -22,7 +22,7 @@ describe ApplicationController do
 
 
   describe "#current_user" do
-    it "should set the current user" do
+    it "sets the current user" do
       user = Fabricate(:user)
       session[:user_id] = user.id
       get :index
@@ -31,7 +31,7 @@ describe ApplicationController do
   end
 
   describe "#signed_in?" do
-    it "should return true if the user is signed in" do
+    it "returns true if the user is signed in" do
       user = Fabricate(:user)
       session[:user_id] = user.id
       get :edit, id: user.id
